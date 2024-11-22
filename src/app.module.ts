@@ -6,10 +6,12 @@ import { MedicosModule } from './medicos/medicos.module';
 import { PacientesModule } from './pacientes/pacientes.module';
 import { DiagnosticosModule } from './diagnosticos/diagnosticos.module';
 import { DiagnosticoModule } from './diagnostico/diagnostico.module';
+import { PacientemedicoService } from './pacientemedico/pacientemedico.service';
+import { PacientemedicoModule } from './pacientemedico/pacientemedico.module';
 
 @Module({
-  imports: [MedicosModule, PacientesModule, DiagnosticosModule, DiagnosticoModule],
+  imports: [MedicosModule, PacientesModule, DiagnosticosModule, DiagnosticoModule, PacientemedicoModule],
   controllers: [AppController],
-  providers: [AppService, MedicosService],
+  providers: [AppService, MedicosService, PacientemedicoService],
 })
 export class AppModule {}
