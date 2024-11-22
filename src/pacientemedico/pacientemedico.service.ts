@@ -26,7 +26,11 @@ export class PacientemedicoService {
         const paciente: PacienteEntity = await this.pacienteRepository.findOne({where: {id: pacienteId}, relations: ["medicos", "diagnosticos"]})
         if (!paciente)
           throw new BusinessLogicException("The paciente with the given id was not found", BusinessError.NOT_FOUND);
-    
+        
+
+        if(paciente.medicos.length >=5)
+            throw new BusinessLogicException("The paciente no puede tener mas de 5 medicos asignados", BusinessError.NOT_FOUND);
+
         paciente.medicos = [...paciente.medicos, medico];
         return await this.pacienteRepository.save(paciente);
       }
