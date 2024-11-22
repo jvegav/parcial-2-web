@@ -3,7 +3,7 @@ import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { PacienteEntity } from './paciente.entity';
 import { Repository } from 'typeorm';
-import { BusinessError, BusinessLogicException } from 'src/shared/errorrs/business-errors';
+import { BusinessError, BusinessLogicException } from '../shared/errorrs/business-errors';
 
 @Injectable()
 export class PacientesService {
@@ -19,7 +19,7 @@ export class PacientesService {
 
 
     async findOne(id: string): Promise<PacienteEntity> {
-        const paciente: PacienteEntity = await this.pacienteRepository.findOne({where: {id}, relations: ["diagnsoticos","medicos"] } );
+        const paciente: PacienteEntity = await this.pacienteRepository.findOne({where: {id}, relations: ["diagnosticos","medicos"] } );
         if (!paciente)
           throw new BusinessLogicException("The pacient with the given id was not found", BusinessError.NOT_FOUND);
         return paciente;

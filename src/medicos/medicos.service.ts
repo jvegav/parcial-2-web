@@ -3,7 +3,7 @@ import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { MedicoEntity } from './medico.entity';
 import { Repository } from 'typeorm';
-import { BusinessError, BusinessLogicException } from 'src/shared/errorrs/business-errors';
+import { BusinessError, BusinessLogicException } from '../shared/errorrs/business-errors';
 
 @Injectable()
 export class MedicosService {

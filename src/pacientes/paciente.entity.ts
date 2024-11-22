@@ -1,6 +1,6 @@
 /* eslint-disable prettier/prettier */
-import { DiagnosticoEntity } from 'src/diagnostico/diagnostico.entity';
-import { MedicoEntity } from 'src/medicos/medico.entity';
+import { DiagnosticoEntity } from '../diagnostico/diagnostico.entity';
+import { MedicoEntity } from '../medicos/medico.entity';
 import { Column, Entity, JoinColumn, ManyToMany, PrimaryGeneratedColumn} from 'typeorm'
 
 @Entity()
