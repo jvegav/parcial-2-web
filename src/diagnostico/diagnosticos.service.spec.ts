@@ -63,7 +63,7 @@ describe('Diagnostico Service', () => {
     
         await expect(service.findOne('1')).rejects.toMatchObject({
             type: BusinessError.NOT_FOUND,
-            message: 'The pacient with the given id was not found'
+            message: 'The diagnostico with the given id was not found'
             
           });
     });
