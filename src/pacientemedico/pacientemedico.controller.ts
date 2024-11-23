@@ -10,7 +10,7 @@ export class PacientemedicoController {
     constructor(private readonly pacienteMedicoService: PacientemedicoService){}
 
     @Post(':pacienteId/medicos/:medicoId')
-    async addArtworkMuseum(@Param('pacienteId') pacienteId: string, @Param('medicoId') medicoId: string){
+    async addMedicoToPaciente(@Param('pacienteId') pacienteId: string, @Param('medicoId') medicoId: string){
         return await this.pacienteMedicoService.addMedicoToPaciente(medicoId, pacienteId);
     }
 

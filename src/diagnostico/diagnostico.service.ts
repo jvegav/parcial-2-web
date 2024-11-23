@@ -27,7 +27,7 @@ export class DiagnosticoService {
     }
 
     async create(diagnostico: DiagnosticoEntity): Promise<DiagnosticoEntity> {
-        console.log(diagnostico)
+        
         if(diagnostico.descripcion.length < 200)
             throw new BusinessLogicException("El diagnostico necesita una descripcion de mas de 200 caracteres", BusinessError.PRECONDITION_FAILED);
         
