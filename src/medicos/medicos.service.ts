@@ -26,9 +26,10 @@ export class MedicosService {
     }
 
     async create(medico: MedicoEntity): Promise<MedicoEntity> {
-        if(medico.especialidad === '')
+        if(medico.especialidad.length <1)
+            
             throw new BusinessLogicException("El medico necesita una especialidad", BusinessError.PRECONDITION_FAILED);
-        if(medico.nombre === '')
+        if(medico.nombre.length <1)
             throw new BusinessLogicException("El medico necesita un nombre", BusinessError.PRECONDITION_FAILED);
 
         return await this.medicoRepository.save(medico);
