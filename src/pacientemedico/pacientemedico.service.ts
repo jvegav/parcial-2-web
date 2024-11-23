@@ -1,9 +1,9 @@
 /* eslint-disable prettier/prettier */
 import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
-import { MedicoEntity } from 'src/medicos/medico.entity';
-import { PacienteEntity } from 'src/pacientes/paciente.entity';
-import { BusinessError, BusinessLogicException } from 'src/shared/errorrs/business-errors';
+import { MedicoEntity } from '../medicos/medico.entity';
+import { PacienteEntity } from '../pacientes/paciente.entity';
+import { BusinessError, BusinessLogicException } from '../shared/errorrs/business-errors';
 import { Repository } from 'typeorm';
 
 @Injectable()
