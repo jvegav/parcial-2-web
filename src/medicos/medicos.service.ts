@@ -36,10 +36,11 @@ export class MedicosService {
     }
 
     async delete(id: string) {
-        const medico: MedicoEntity = await this.medicoRepository.findOne({where:{id}});
+        const medico: MedicoEntity = await this.medicoRepository.findOne({where:{id},relations:['pacientes']});
         if (!medico)
             throw new BusinessLogicException("The medico with the given id was not found", BusinessError.NOT_FOUND);
         
+
         
         if(medico.pacientes.length>=1)
             throw new BusinessLogicException("The medico have one or more patients", BusinessError.PRECONDITION_FAILED);

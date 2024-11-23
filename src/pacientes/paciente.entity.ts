@@ -1,7 +1,7 @@
 /* eslint-disable prettier/prettier */
 import { DiagnosticoEntity } from '../diagnostico/diagnostico.entity';
 import { MedicoEntity } from '../medicos/medico.entity';
-import { Column, Entity, JoinColumn, ManyToMany, PrimaryGeneratedColumn} from 'typeorm'
+import { Column, Entity, JoinTable, ManyToMany, PrimaryGeneratedColumn} from 'typeorm'
 
 @Entity()
 export class PacienteEntity {
@@ -19,6 +19,6 @@ export class PacienteEntity {
     medicos : MedicoEntity[];
 
     @ManyToMany(()=>DiagnosticoEntity, diagnosticos => diagnosticos.pacientes)
-    @JoinColumn()
+    @JoinTable()
     diagnosticos: DiagnosticoEntity[];
 }

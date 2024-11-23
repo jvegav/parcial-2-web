@@ -14,7 +14,7 @@ export class DiagnosticoController {
 
     @Get()
     async findAll(){
-        return await this.diagnosticoService.findAll()
+        return await  this.diagnosticoService.findAll()
     }
 
     @Get(':diagnosticoId')

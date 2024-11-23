@@ -33,15 +33,16 @@ export class PacientesService {
     }
 
     async delete(id: string) {
-        const paciente: PacienteEntity = await this.pacienteRepository.findOne({where:{id}});
+        const paciente: PacienteEntity = await this.pacienteRepository.findOne({where:{id},relations:['diagnosticos']});
         if (!paciente)
             throw new BusinessLogicException("The pacient with the given id was not found", BusinessError.NOT_FOUND);
-        
+       
         if(paciente.diagnosticos.length > 0 )
             throw new BusinessLogicException("The pacient have one or more diagnosticos", BusinessError.PRECONDITION_FAILED);
 
         await this.pacienteRepository.remove(paciente);
     }
+
 
 
 

@@ -14,18 +14,20 @@ export class DiagnosticoService {
     ){}
 
     async findAll(): Promise<DiagnosticoEntity[]> {
-        return await this.diagnosticoRepository.find({ relations: ["pacientes"] });
+        
+        return await this.diagnosticoRepository.find({relations:['pacientes']});
     }
 
 
     async findOne(id: string): Promise<DiagnosticoEntity> {
         const diagnostico: DiagnosticoEntity = await this.diagnosticoRepository.findOne({where: {id}, relations: ["pacientes"] } );
         if (!diagnostico)
-            throw new BusinessLogicException("The pacient with the given id was not found", BusinessError.NOT_FOUND);
+            throw new BusinessLogicException("The diagnostico with the given id was not found", BusinessError.NOT_FOUND);
         return diagnostico;
     }
 
     async create(diagnostico: DiagnosticoEntity): Promise<DiagnosticoEntity> {
+        console.log(diagnostico)
         if(diagnostico.descripcion.length < 200)
             throw new BusinessLogicException("El diagnostico necesita una descripcion de mas de 200 caracteres", BusinessError.PRECONDITION_FAILED);
         
